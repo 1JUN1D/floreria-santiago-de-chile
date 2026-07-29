@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: http://floreriasantiago.dondeseria.com/sitemap.xml

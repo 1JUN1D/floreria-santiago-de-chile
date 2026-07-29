@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Servicio de envío de flores a domicilio en Santiago, Región Metropolitana. Arreglos florales frescos con entrega el mismo día. Pide por WhatsApp con Floricor.">
+    <meta name="keywords" content="envío de flores Santiago, flores a domicilio, entrega mismo día, despacho de flores, floristería Santiago">
+    <title>Envío de Flores a Domicilio en Santiago | Floricor</title>
+
+    <meta property="og:title" content="Envío de Flores a Domicilio en Santiago">
+    <meta property="og:description" content="Servicio de envío de flores a domicilio en Santiago, Región Metropolitana. Arreglos florales frescos con entrega el mismo día. Pide por WhatsApp con Floricor.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://floreriasantiago.dondeseria.com/landing/envio-domicilio">
+    <meta property="og:image" content="http://floreriasantiago.dondeseria.com/assets/logo.webp">
+    <link rel="canonical" href="http://floreriasantiago.dondeseria.com/landing/envio-domicilio">
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18359236942"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18359236942');
+</script>
+<!-- Event snippet for conversion -->
+<script>
+  function gtag_report_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') { window.location = url; }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-18359236942/p5rOCKrr1dgcEM7yrrJE',
+        'value': 1.0,
+        'currency': 'CLP',
+        'event_callback': callback
+    });
+    return false;
+  }
+  // Dispara la conversión en cualquier clic a WhatsApp de la landing
+  // (tarjetas de producto, navbar, botón flotante y sección de contacto)
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+    if (a) {
+      gtag('event', 'conversion', {
+        'send_to': 'AW-18359236942/p5rOCKrr1dgcEM7yrrJE',
+        'value': 1.0,
+        'currency': 'CLP'
+      });
+    }
+  });
+</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/catalog.css">
+    <link rel="icon" type="image/png" href="/assets/logo.webp">
+    <style>
+        .landing-intro { padding: 3.5rem 0 1rem; }
+        .landing-intro .container { max-width: 900px; }
+        .landing-intro h2 { font-family:'Playfair Display',serif; font-size:2rem; color:#16121C; margin-bottom:1rem; text-align:center; }
+        .landing-intro p { color:#555; line-height:1.9; margin-bottom:1.1rem; font-size:1.02rem; }
+    </style>
+</head>
+<body data-initial-filter="todos">
+    <div id="navbar-container"></div>
+
+    <section class="catalog-hero">
+        <div class="container">
+            <h1>Envío de Flores a Domicilio en Santiago</h1>
+            <p>Hacemos llegar flores recién cosechadas hasta tu domicilio, siempre a tiempo y con una terminación cuidada en cada comuna de la ciudad.</p>
+        </div>
+    </section>
+
+    <section class="landing-intro">
+        <div class="container">
+            <h2>Frescura Que Llega a Tu Puerta</h2>
+            <p>En Floricor cuidamos cada entrega al detalle: armamos tu arreglo en la jornada y lo trasladamos con delicadeza para que se vea tan fresco como al momento de prepararlo. Si confirmas tu pedido antes de las 2 PM, lo despachamos ese mismo día.</p>
+            <p>Llegamos a toda Santiago y acordamos juntos el mejor horario. Además te mandamos una imagen de respaldo para que te quedes tranquilo. Encarga por WhatsApp y del resto nos ocupamos nosotros.</p>
+        </div>
+    </section>
+
+    <section class="catalog-filters">
+        <div class="container">
+            <div class="catalog-search">
+                <input type="search" id="product-search" placeholder="Buscar por nombre o código (ej. rosas o 014)" aria-label="Buscar producto por nombre o código">
+            </div>
+            <div class="filters-container">
+                <span class="filter-label">Filtrar por:</span>
+                <button class="filter-btn active" data-filter="todos">Todos los Productos</button>
+                <button class="filter-btn" data-filter="girasoles">Girasoles</button>
+                <button class="filter-btn" data-filter="rosas-rojas">Rosas Rojas</button>
+                <button class="filter-btn" data-filter="rosas-rosadas">Rosas Rosadas</button>
+                <button class="filter-btn" data-filter="tulipanes">Tulipanes</button>
+                <button class="filter-btn" data-filter="lirios">Lirios</button>
+                <button class="filter-btn" data-filter="floreros">Floreros</button>
+                <button class="filter-btn" data-filter="canastas">Canastas</button>
+                <button class="filter-btn" data-filter="mix">Ramos Mix</button>
+                <button class="filter-btn" data-filter="precio-bajo">Menos de $25.000</button>
+                <button class="filter-btn" data-filter="precio-medio">$25.000 - $50.000</button>
+                <button class="filter-btn" data-filter="precio-alto">Más de $50.000</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="results-counter">
+        <div class="container">
+            Mostrando <strong id="results-count">28</strong> productos
+        </div>
+    </div>
+
+    <section class="catalog-section">
+        <div class="container">
+            <div class="products-grid" id="products-grid"></div>
+            <div class="empty-state" id="empty-state">
+                <h3>No se encontraron productos</h3>
+                <p>Ajusta la búsqueda o el filtro para ver más opciones</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightbox-close">&times;</button>
+            <img src="" alt="" class="lightbox-image" id="lightbox-image">
+            <div class="lightbox-info">
+                <h3 id="lightbox-title"></h3>
+                <p id="lightbox-price"></p>
+            </div>
+        </div>
+    </div>
+
+    <button class="scroll-top" id="scroll-top">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <div id="service-areas-container"></div>
+    <div id="contact-info-container"></div>
+    <div id="footer-container"></div>
+    <div id="whatsapp-button-container"></div>
+
+    <script src="/js/landing-catalog.js"></script>
+</body>
+</html>
