@@ -64,9 +64,9 @@
                 <button class="filter-btn" data-filter="floreros">Floreros</button>
                 <button class="filter-btn" data-filter="canastas">Canastas</button>
                 <button class="filter-btn" data-filter="mix">Ramos Mix</button>
-                <button class="filter-btn" data-filter="precio-bajo">Menos de $25.000</button>
-                <button class="filter-btn" data-filter="precio-medio">$25.000 - $50.000</button>
-                <button class="filter-btn" data-filter="precio-alto">Más de $50.000</button>
+                <button class="filter-btn" data-filter="precio-bajo">Menos de $30.000</button>
+                <button class="filter-btn" data-filter="precio-medio">$30.000 - $60.000</button>
+                <button class="filter-btn" data-filter="precio-alto">Más de $60.000</button>
             </div>
         </div>
     </section>
@@ -126,7 +126,7 @@ const products = [
     {
         id: 1,
         name: "Girasoles y Rosas Rojas Premium",
-        price: 55000,
+        price: 69000,
         image: "assets/foto1.webp",
         description: "Ramo redondo de gran formato con siete girasoles abiertos y una decena de rosas rojas, salpicado de solidago amarillo y follaje variegado. Va montado sobre malla de yute celeste, un contraste que lo hace ver enorme y muy vistoso.",
         categories: ["girasoles", "rosas-rojas", "precio-alto"]
@@ -134,7 +134,7 @@ const products = [
     {
         id: 2,
         name: "Mix de Temporada con Girasol y Lirios",
-        price: 20000,
+        price: 25000,
         image: "assets/foto2.webp",
         description: "Composición variada con girasol, lirios en botón, crisantemo blanco de cabeza grande, crisantemos lilas, gerbera naranja, una rosa fucsia y limonium morado. Envoltura color crema y gypsophila para dar aire.",
         categories: ["mix", "girasoles", "lirios", "precio-bajo"]
@@ -142,7 +142,7 @@ const products = [
     {
         id: 3,
         name: "Girasoles y Rosas Fucsia",
-        price: 25000,
+        price: 31000,
         image: "assets/foto3.webp",
         description: "Dos girasoles al centro rodeados de rosas fucsia y una nube generosa de gypsophila blanca. Papel blanco con filo dorado: alegre y romántico al mismo tiempo, ideal para un cumpleaños.",
         categories: ["girasoles", "rosas-rosadas", "precio-medio"]
@@ -150,7 +150,7 @@ const products = [
     {
         id: 4,
         name: "Florero con 24 Rosas Rojas",
-        price: 80000,
+        price: 100000,
         image: "assets/foto4.webp",
         description: "Dos docenas de rosas rojas montadas en florero cilíndrico de vidrio, con bayas de hypericum rojo y follaje verde oscuro. Lleva un moño de raso rojo en el cuello y llega listo con agua, sin necesidad de armarlo.",
         categories: ["rosas-rojas", "floreros", "precio-alto"]
@@ -158,7 +158,7 @@ const products = [
     {
         id: 5,
         name: "Canasta con Rosa Roja y Crisantemos",
-        price: 22000,
+        price: 28000,
         image: "assets/foto5.webp",
         description: "Canasta con asa alta rellena de crisantemos blancos, margaritas amarillas y una rosa roja como punto focal, más un botón de lirio rosado que se abre a los pocos días. Se apoya sola en cualquier mesa o velador.",
         categories: ["canastas", "mix", "precio-bajo"]
@@ -166,7 +166,7 @@ const products = [
     {
         id: 6,
         name: "Canasta con Girasol y Lirios",
-        price: 20000,
+        price: 25000,
         image: "assets/foto6.webp",
         description: "Un girasol grande acompañado de lirios naranjas, crisantemos blancos y lilas, gypsophila y hojas de laurel. Presentada en canasta con asa, perfecta para llevar directo a una oficina o una visita.",
         categories: ["canastas", "girasoles", "lirios", "precio-bajo"]
@@ -174,7 +174,7 @@ const products = [
     {
         id: 7,
         name: "Canasta con Lirio Amarillo",
-        price: 20000,
+        price: 25000,
         image: "assets/foto7.webp",
         description: "Lirio amarillo abierto y un segundo en botón, junto a una rosa rosada, crisantemos blancos y morados sobre una base tupida de helecho. La canasta con asa le da un aire clásico y acogedor.",
         categories: ["canastas", "lirios", "mix", "precio-bajo"]
@@ -182,7 +182,7 @@ const products = [
     {
         id: 8,
         name: "Canasta Blanca de Lirios y Rosas",
-        price: 20000,
+        price: 25000,
         image: "assets/foto8.webp",
         description: "Arreglo íntegramente blanco con lirio, rosa, crisantemos y gypsophila sobre helecho y follaje verde intenso. Es nuestra opción más sobria: sirve tanto para acompañar en un duelo como para una decoración serena.",
         categories: ["canastas", "lirios", "mix", "precio-bajo"]
@@ -190,7 +190,7 @@ const products = [
     {
         id: 9,
         name: "Ramo Pequeño de Rosas Rosadas",
-        price: 16000,
+        price: 20000,
         image: "assets/foto9.webp",
         description: "Formato compacto con dos rosas rosadas, crisantemos blancos, un crisantemo morado y una gerbera naranja, envuelto en papel rosa palo con filo plateado. El detalle justo cuando quieres decir algo sin exagerar.",
         categories: ["rosas-rosadas", "mix", "precio-bajo"]
@@ -198,7 +198,7 @@ const products = [
     {
         id: 10,
         name: "Rosas Rojas y Rosadas con Crisantemos",
-        price: 28000,
+        price: 35000,
         image: "assets/foto10.webp",
         description: "Tres rosas rojas y tres rosadas conviven con crisantemos blancos, gypsophila y ramas de mirto. Papel blanco con filo dorado, un ramo equilibrado que funciona para aniversarios y para agradecer.",
         categories: ["rosas-rojas", "rosas-rosadas", "mix", "precio-medio"]
@@ -206,7 +206,7 @@ const products = [
     {
         id: 11,
         name: "Girasol y Rosas en Envoltura Celeste",
-        price: 28000,
+        price: 35000,
         image: "assets/foto11.webp",
         description: "Un girasol al centro, dos rosas rojas, una rosa blanca y crisantemos lilas, con gypsophila y ramas altas que le dan movimiento. La envoltura celeste translúcida lo diferencia de cualquier ramo típico.",
         categories: ["girasoles", "rosas-rojas", "mix", "precio-medio"]
@@ -214,7 +214,7 @@ const products = [
     {
         id: 12,
         name: "Ramo Campestre con Rosa Roja",
-        price: 28000,
+        price: 35000,
         image: "assets/foto12.webp",
         description: "Aire de campo con una rosa roja rodeada de crisantemos blancos, otros en rosa pálido, uno amarillo, ramas de pino y gypsophila. Papel blanco satinado para un resultado fresco y natural.",
         categories: ["mix", "rosas-rojas", "precio-medio"]
@@ -222,7 +222,7 @@ const products = [
     {
         id: 13,
         name: "Lirios y Rosas Rojas",
-        price: 28000,
+        price: 35000,
         image: "assets/foto13.webp",
         description: "Lirio coral bien abierto junto a rosas rojas, crisantemos blancos y amarillos y gypsophila. Papel blanco con líneas doradas: un ramo cálido, de colores intensos y buena duración.",
         categories: ["lirios", "rosas-rojas", "mix", "precio-medio"]
@@ -230,15 +230,15 @@ const products = [
     {
         id: 14,
         name: "Florero de Rosas Rojas",
-        price: 25000,
+        price: 31000,
         image: "assets/foto14.webp",
-        description: "Rosas rojas en florero de vidrio con gypsophila, ruscus y lazo de raso celeste, listo para ubicar sin trasvasije. Disponible en tres tamaños: 6 rosas $25.000, 8 rosas $30.000 y 10 rosas $35.000.",
+        description: "Rosas rojas en florero de vidrio con gypsophila, ruscus y lazo de raso celeste, listo para ubicar sin trasvasije. Disponible en tres tamaños: 6 rosas $31.000, 8 rosas $38.000 y 10 rosas $44.000.",
         categories: ["rosas-rojas", "floreros", "precio-medio"]
     },
     {
         id: 15,
         name: "Ramo de 24 Rosas Rojas",
-        price: 85000,
+        price: 106000,
         image: "assets/foto15.webp",
         description: "Dos docenas de rosas rojas de tallo largo en una sola cúpula, con gypsophila y mirto entre medio, sobre papel blanco de filo dorado. La opción para pedir matrimonio o celebrar algo grande.",
         categories: ["rosas-rojas", "precio-alto"]
@@ -246,7 +246,7 @@ const products = [
     {
         id: 16,
         name: "Rosas Rojas y Tulipanes",
-        price: 65000,
+        price: 81000,
         image: "assets/foto16.webp",
         description: "Una docena de rosas rojas combinada con tulipanes amarillos y blancos, eucalipto y mirto, en papel negro con dorado y moño rojo. Mezcla poco vista que se ve carísima.",
         categories: ["rosas-rojas", "tulipanes", "precio-alto"]
@@ -254,7 +254,7 @@ const products = [
     {
         id: 17,
         name: "Rosas Rojas y Tulipanes Blancos",
-        price: 40000,
+        price: 50000,
         image: "assets/foto17.webp",
         description: "Cinco rosas rojas rodeadas de tulipanes blancos aún cerrados, con gypsophila y follaje fino. Papel color crema con filo dorado y lazo de raso rosado: delicado y muy elegante.",
         categories: ["rosas-rojas", "tulipanes", "precio-medio"]
@@ -262,7 +262,7 @@ const products = [
     {
         id: 18,
         name: "Girasoles y Rosas Rojas Grande",
-        price: 66000,
+        price: 83000,
         image: "assets/foto18.webp",
         description: "Ocho girasoles y una decena de rosas rojas armados en un ramo de gran volumen, con mirto verde llenando los espacios. Papel negro con borde dorado y cinta roja, imposible de ignorar.",
         categories: ["girasoles", "rosas-rojas", "precio-alto"]
@@ -270,7 +270,7 @@ const products = [
     {
         id: 19,
         name: "Ramo de 20 Rosas Rosadas",
-        price: 65000,
+        price: 81000,
         image: "assets/foto19.webp",
         description: "Veinte rosas en distintos tonos de rosa, desde el pálido hasta el fucsia suave, con gypsophila y hojas redondas de eucalipto. Papel blanco con filo dorado para un acabado impecable.",
         categories: ["rosas-rosadas", "precio-alto"]
@@ -278,7 +278,7 @@ const products = [
     {
         id: 20,
         name: "Lirios y Rosas Rosadas",
-        price: 39000,
+        price: 49000,
         image: "assets/foto20.webp",
         description: "Lirios rosados abiertos y varios botones que seguirán floreciendo, acompañados de rosas rosa pálido y gypsophila. Papel blanco con filo dorado y amarre de rafia natural.",
         categories: ["lirios", "rosas-rosadas", "mix", "precio-medio"]
@@ -286,7 +286,7 @@ const products = [
     {
         id: 21,
         name: "Florero con Girasoles y Rosas",
-        price: 35000,
+        price: 44000,
         image: "assets/foto21.webp",
         description: "Tres girasoles y cinco rosas rojo vino en florero de vidrio, con eucalipto cinerea y gypsophila abriéndose hacia los lados. Lazo de raso rojo al cuello y llega con agua, listo para lucir.",
         categories: ["floreros", "girasoles", "rosas-rojas", "precio-medio"]
@@ -294,7 +294,7 @@ const products = [
     {
         id: 22,
         name: "Ramo de Girasoles",
-        price: 32000,
+        price: 40000,
         image: "assets/foto22.webp",
         description: "Ocho girasoles bien abiertos, apretados en una sola cúpula amarilla, con mirto verde de relleno. Papel negro con filo kraft, amarre de rafia y tarjeta escrita a mano incluida.",
         categories: ["girasoles", "precio-medio"]
@@ -302,7 +302,7 @@ const products = [
     {
         id: 23,
         name: "Rosas y Lirios Amarillos",
-        price: 32000,
+        price: 40000,
         image: "assets/foto23.webp",
         description: "Cinco rosas amarillas junto a lirios del mismo tono que van abriendo con los días, más gypsophila y follaje. Papel amarillo suave: el ramo para felicitar, agradecer o simplemente alegrar el día.",
         categories: ["lirios", "mix", "precio-medio"]
@@ -310,7 +310,7 @@ const products = [
     {
         id: 24,
         name: "Ramo Pequeño Fucsia con Gerbera",
-        price: 18000,
+        price: 23000,
         image: "assets/foto24.webp",
         description: "Gerbera fucsia, rosa fucsia y lirio rosado en un ramo chico pero de color intenso, con gypsophila y follaje. Envoltura gris con ribete lila y amarre de mimbre trenzado.",
         categories: ["rosas-rosadas", "mix", "precio-bajo"]
@@ -318,7 +318,7 @@ const products = [
     {
         id: 25,
         name: "8 Rosas Rojas en Envoltura Negra",
-        price: 28000,
+        price: 35000,
         image: "assets/foto25.webp",
         description: "Ocho rosas rojas escalonadas con gypsophila entre medio, en papel negro translúcido con rizos y moño de raso rojo. El clásico romántico, bien hecho y a buen precio.",
         categories: ["rosas-rojas", "precio-medio"]
@@ -326,7 +326,7 @@ const products = [
     {
         id: 26,
         name: "8 Rosas Fucsia",
-        price: 28000,
+        price: 35000,
         image: "assets/foto26.webp",
         description: "Ocho rosas fucsia de botón firme con gypsophila y ramas de ciprés, presentadas en papel rosa palo con filo dorado y un moño fucsia amplio. Vibrante sin perder la elegancia.",
         categories: ["rosas-rosadas", "precio-medio"]
@@ -334,7 +334,7 @@ const products = [
     {
         id: 27,
         name: "Girasoles y Rosas Surtidas",
-        price: 28000,
+        price: 35000,
         image: "assets/foto27.webp",
         description: "Tres girasoles acompañados de rosas en rosado, blanco y rojo, con gypsophila y hojas verdes. Papel rosado con filo dorado y tarjeta al centro: uno de los más pedidos para cumpleaños.",
         categories: ["girasoles", "mix", "precio-medio"]
@@ -342,7 +342,7 @@ const products = [
     {
         id: 28,
         name: "Girasoles con Rosas de Colores",
-        price: 28000,
+        price: 35000,
         image: "assets/foto28.webp",
         description: "Cinco girasoles rodeados de rosas roja, fucsia, rosada y blanca, con abundante gypsophila y mirto. Papel rosa con borde kraft y tarjeta incluida, un ramo alegre para cualquier ocasión.",
         categories: ["girasoles", "mix", "precio-medio"]
