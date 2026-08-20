@@ -75,6 +75,16 @@
     </section>
 
 
+
+    <!-- Banda de promoción semanal -->
+    <section class="promo-strip">
+        <div class="container">
+            <strong>Promoción de la semana · 17% de descuento</strong>
+            <span>Ramos de girasoles y rosas + todas las canastas</span>
+            <div class="promo-strip-clock" id="promo-strip-clock">Termina el domingo</div>
+        </div>
+    </section>
+
     <section class="catalog-filters">
         <div class="container">
             <div class="catalog-search">
@@ -83,6 +93,7 @@
             <div class="filters-container">
                 <span class="filter-label">Filtrar por:</span>
                 <button class="filter-btn active" data-filter="todos">Todos los Productos</button>
+                <button class="filter-btn filter-promo" data-filter="promocion">★ En Promoción</button>
                 <button class="filter-btn" data-filter="girasoles">Girasoles</button>
                 <button class="filter-btn" data-filter="rosas-rojas">Rosas Rojas</button>
                 <button class="filter-btn" data-filter="rosas-rosadas">Rosas Rosadas</button>
@@ -100,7 +111,7 @@
 
     <div class="results-counter">
         <div class="container">
-            Mostrando <strong id="results-count">28</strong> productos
+            Mostrando <strong id="results-count">36</strong> productos
         </div>
     </div>
 
@@ -145,5 +156,6 @@
     <div id="whatsapp-button-container"></div>
 
     <script src="/js/landing-catalog.js"></script>
+    <script src="/js/promo-flyer.js"></script>
 </body>
 </html>

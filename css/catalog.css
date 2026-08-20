@@ -792,3 +792,188 @@
     background: var(--catalog-lavender);
     color: var(--catalog-secondary);
 }
+
+/* ===================================================================
+   PROMOCIÓN SEMANAL · tarjetas destacadas
+   =================================================================== */
+:root {
+    --promo-red: #D6212E;
+    --promo-red-dark: #A5101B;
+    --promo-gold: #C9A86A;
+}
+
+/* La tarjeta en promo se separa visualmente del resto */
+.product-card.is-promo {
+    position: relative;
+    border: 2px solid var(--promo-red);
+    box-shadow:
+        0 1px 2px rgba(214, 33, 46, 0.10),
+        0 18px 44px rgba(214, 33, 46, 0.20);
+}
+
+.product-card.is-promo:hover {
+    box-shadow:
+        0 4px 12px rgba(214, 33, 46, 0.15),
+        0 38px 78px rgba(214, 33, 46, 0.30);
+}
+
+/* Sello circular grande con el % de descuento */
+.promo-corner {
+    position: absolute;
+    top: -14px;
+    left: -10px;
+    z-index: 6;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 32% 28%, #F0454F 0%, var(--promo-red) 45%, var(--promo-red-dark) 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    box-shadow: 0 8px 22px rgba(165, 16, 27, 0.45);
+    border: 3px solid #fff;
+    transform: rotate(-12deg);
+    animation: promoPulse 2.2s ease-in-out infinite;
+}
+
+.promo-corner-pct {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.promo-corner-txt {
+    font-size: 0.52rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    margin-top: 0.18rem;
+}
+
+@keyframes promoPulse {
+    0%, 100% { transform: rotate(-12deg) scale(1); }
+    50%      { transform: rotate(-12deg) scale(1.07); }
+}
+
+/* Cinta sobre la foto */
+.promo-ribbon {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, var(--promo-red-dark) 0%, var(--promo-red) 55%, #E8434F 100%);
+    color: #fff;
+    text-align: center;
+    font-size: 0.63rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    padding: 0.6rem 0.5rem;
+    text-transform: uppercase;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Badge dentro de la ficha */
+.product-card.is-promo .product-offer-badge {
+    background: linear-gradient(135deg, #E8434F 0%, var(--promo-red-dark) 100%);
+    box-shadow: 0 4px 14px rgba(214, 33, 46, 0.45);
+    font-size: 0.62rem;
+    letter-spacing: 0.24em;
+    padding: 0.42rem 0.95rem;
+}
+
+/* Bloque de precios */
+.price-block { display: block; }
+
+.price-old {
+    display: block;
+    font-size: 0.95rem;
+    color: #9b93a6;
+    text-decoration: line-through;
+    text-decoration-color: var(--promo-red);
+    text-decoration-thickness: 2px;
+    margin-bottom: 0.15rem;
+    font-weight: 500;
+}
+
+.product-price-promo {
+    color: var(--promo-red) !important;
+    font-size: 1.85rem !important;
+    font-weight: 700 !important;
+    line-height: 1.05;
+}
+
+.price-save {
+    display: inline-block;
+    margin-top: 0.35rem;
+    background: rgba(214, 33, 46, 0.10);
+    color: var(--promo-red-dark);
+    border: 1px solid rgba(214, 33, 46, 0.30);
+    border-radius: 999px;
+    padding: 0.18rem 0.6rem;
+    font-size: 0.63rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+}
+
+/* Botón de filtro "En Promoción" */
+.filter-btn.filter-promo {
+    background: linear-gradient(135deg, #E8434F 0%, var(--promo-red-dark) 100%);
+    color: #fff;
+    border-color: var(--promo-red-dark);
+    font-weight: 600;
+}
+.filter-btn.filter-promo:hover,
+.filter-btn.filter-promo.active {
+    background: linear-gradient(135deg, var(--promo-red-dark) 0%, #7d0b13 100%);
+    color: #fff;
+    border-color: #7d0b13;
+}
+
+/* Banda anunciando la promo dentro del catálogo */
+.promo-strip {
+    background: linear-gradient(90deg, var(--promo-red-dark) 0%, var(--promo-red) 50%, #E8434F 100%);
+    color: #fff;
+    padding: 1.1rem 0;
+    text-align: center;
+}
+.promo-strip strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    letter-spacing: 0.02em;
+}
+.promo-strip span {
+    display: block;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.92;
+    margin-top: 0.25rem;
+}
+.promo-strip .promo-strip-clock {
+    display: inline-block;
+    margin-top: 0.55rem;
+    background: rgba(0,0,0,0.22);
+    border-radius: 999px;
+    padding: 0.35rem 1rem;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+    .promo-corner { width: 70px; height: 70px; top: -10px; left: -6px; }
+    .promo-corner-pct { font-size: 1.25rem; }
+    .product-price-promo { font-size: 1.55rem !important; }
+    .promo-ribbon { font-size: 0.55rem; letter-spacing: 0.10em; padding: 0.5rem 0.4rem; }
+}
+
+/* El sello circular debe poder sobresalir de la tarjeta */
+.product-card.is-promo { overflow: visible; }
+.product-card.is-promo .product-image-container { border-radius: 999px 999px 14px 14px; overflow: hidden; }
+.promo-corner { top: -16px; left: -14px; }
+@media (max-width: 600px) { .promo-corner { top: -12px; left: -10px; } }

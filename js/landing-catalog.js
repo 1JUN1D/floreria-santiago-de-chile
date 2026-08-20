@@ -222,6 +222,78 @@ const products = [
         image: "assets/foto28.webp",
         description: "Cinco girasoles rodeados de rosas roja, fucsia, rosada y blanca, con abundante gypsophila y mirto. Papel rosa con borde kraft y tarjeta incluida, un ramo alegre para cualquier ocasión.",
         categories: ["girasoles", "mix", "precio-medio"]
+    },
+    {
+        id: 29,
+        name: "Ramo de 6 Rosas Rojas y 4 Girasoles",
+        price: 35000,
+        oldPrice: 42000,
+        image: "assets/foto29.webp",
+        description: "Seis rosas rojas de botón firme junto a cuatro girasoles amarillos, con alstroemerias rojas, gypsophila y ramas de pino. Envoltura café con interior rosado y encaje: contraste fuerte y mucho más volumen del que aparenta el precio.",
+        categories: ["promocion", "girasoles", "rosas-rojas", "mix", "precio-medio"]
+    },
+    {
+        id: 30,
+        name: "Ramo de 6 Girasoles y 8 Rosas Rojas",
+        price: 43750,
+        oldPrice: 52500,
+        image: "assets/foto30.webp",
+        description: "Seis girasoles bien abiertos rodeados de ocho rosas rojas y gypsophila, montados en papel color mantequilla con moño de raso burdeos. Un ramo de gran formato, con colores que se ven desde lejos.",
+        categories: ["promocion", "girasoles", "rosas-rojas", "precio-medio"]
+    },
+    {
+        id: 31,
+        name: "Canasta Rosas Blancas y Crisantemos Rosados",
+        price: 22500,
+        oldPrice: 27000,
+        image: "assets/foto31.webp",
+        description: "Rosas blancas y crisantemos rosados sobre una base tupida de pino verde, en canasta de mimbre con asa alta. Fresca y dulce, llega lista para dejar sobre cualquier mesa o velador.",
+        categories: ["promocion", "canastas", "rosas-rosadas", "mix", "precio-bajo"]
+    },
+    {
+        id: 32,
+        name: "Canasta Cálida con Girasoles y Alstroemerias",
+        price: 22500,
+        oldPrice: 27000,
+        image: "assets/foto32.webp",
+        description: "Alstroemerias rojas, girasoles pequeños, crisantemos cobrizos y una rosa blanca al centro, con gypsophila y follaje de pino. Canasta con asa en tonos cálidos, de las más vistosas.",
+        categories: ["promocion", "canastas", "girasoles", "mix", "precio-bajo"]
+    },
+    {
+        id: 33,
+        name: "Canasta de Lirios Naranjas y Rosados",
+        price: 22500,
+        oldPrice: 27000,
+        image: "assets/foto33.webp",
+        description: "Lirios naranjas y rosados ya abiertos, con botones que siguen floreciendo los días siguientes, más margaritas blancas y crisantemos amarillos sobre follaje verde. La canasta más alta y llamativa del grupo.",
+        categories: ["promocion", "canastas", "lirios", "mix", "precio-bajo"]
+    },
+    {
+        id: 34,
+        name: "Canasta Blanca de Rosas y Crisantemos",
+        price: 22500,
+        oldPrice: 27000,
+        image: "assets/foto34.webp",
+        description: "Arreglo íntegramente blanco: rosas, crisantemos y gypsophila sobre una cama densa de pino verde, en canasta con asa. Sobria y elegante, sirve tanto para acompañar como para decorar.",
+        categories: ["promocion", "canastas", "mix", "precio-bajo"]
+    },
+    {
+        id: 35,
+        name: "Canasta Rosas Blancas y Crisantemos Lilas",
+        price: 22500,
+        oldPrice: 27000,
+        image: "assets/foto35.webp",
+        description: "Rosas blancas repartidas alrededor de crisantemos lilas y rosados, con gypsophila y abundante pino verde. Canasta con asa alta, delicada y de muy buena duración.",
+        categories: ["promocion", "canastas", "rosas-rosadas", "mix", "precio-bajo"]
+    },
+    {
+        id: 36,
+        name: "Canasta Blanca y Roja con Margaritas",
+        price: 22500,
+        oldPrice: 27000,
+        image: "assets/foto36.webp",
+        description: "Rosas blancas y rojas junto a margaritas blancas, alstroemerias rojas y gypsophila sobre follaje de ciprés. Canasta con asa, un clásico que funciona para cualquier ocasión.",
+        categories: ["promocion", "canastas", "rosas-rojas", "mix", "precio-bajo"]
     }
 ];
 
@@ -246,6 +318,7 @@ function renderProducts(){
         const q = normalizeText(searchTerm.trim());
         filtered = filtered.filter(p => normalizeText(p.name).includes(q) || productCode(p).includes(q));
     }
+    filtered = filtered.slice().sort(function(a,b){ return (b.oldPrice?1:0) - (a.oldPrice?1:0); });
     if(filtered.length === 0){
         grid.style.display='none';
         if(emptyState) emptyState.classList.add('active');
@@ -255,10 +328,23 @@ function renderProducts(){
     grid.style.display='grid';
     if(emptyState) emptyState.classList.remove('active');
     if(resultsCount) resultsCount.textContent = filtered.length;
-    grid.innerHTML = filtered.map(product => `
-        <div class="product-card" data-categories="${product.categories.join(' ')}">
-            <div class="product-image-container" onclick="openLightbox('${product.image}', '${product.name}', '${formatPrice(product.price)}')">
+    grid.innerHTML = filtered.map(buildProductCard).join('');
+}
+
+// ===== Tarjeta de producto (con soporte de PROMOCION destacada) =====
+function promoPercent(p){ return Math.round((1 - (p.price / p.oldPrice)) * 100); }
+
+function buildProductCard(product){
+    var enPromo = !!product.oldPrice;
+    var waTexto = enPromo
+        ? 'Hola, me interesa el producto EN PROMOCION: ' + product.name + ' (Ref. ' + productCode(product) + ') - Precio promocion ' + formatPrice(product.price) + ' (antes ' + formatPrice(product.oldPrice) + ') | Foto: ' + productPhotoUrl(product)
+        : 'Hola, me interesa el producto: ' + product.name + ' (Ref. ' + productCode(product) + ') - ' + formatPrice(product.price) + ' | Foto: ' + productPhotoUrl(product);
+    return `
+        <div class="product-card${enPromo ? ' is-promo' : ''}" data-categories="${product.categories.join(' ')}">
+            ${enPromo ? `<div class="promo-corner"><span class="promo-corner-pct">-${promoPercent(product)}%</span><span class="promo-corner-txt">OFERTA</span></div>` : ''}
+            <div class="product-image-container" onclick="openLightbox('${product.image}', '${product.name.replace(/'/g, "\\'")}', '${formatPrice(product.price)}')">
                 <img src="/${product.image}" alt="${product.name}" class="product-image" loading="lazy">
+                ${enPromo ? `<div class="promo-ribbon">PRECIO PROMOCIÓN · SOLO ESTA SEMANA</div>` : ''}
                 <div class="zoom-icon">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
@@ -267,21 +353,24 @@ function renderProducts(){
                 </div>
             </div>
             <div class="product-info">
-                <div class="product-ref">Ref. ${productCode(product)}</div>
+                                <div class="product-ref">Ref. ${productCode(product)}</div>
                 <h3 class="product-name">${product.name}</h3>
                 <div class="product-description">${product.description}</div>
                 <div class="product-footer">
-                    <div>
-                        <span class="price-label">Desde</span>
-                        <div class="product-price">${formatPrice(product.price)}</div>
+                    <div class="price-block">
+                        ${enPromo
+                            ? `<span class="price-old">Antes ${formatPrice(product.oldPrice)}</span>`
+                            : `<span class="price-label">Desde</span>`}
+                        <div class="product-price${enPromo ? ' product-price-promo' : ''}">${formatPrice(product.price)}</div>
+                        ${enPromo ? `<span class="price-save">Ahorras ${formatPrice(product.oldPrice - product.price)}</span>` : ''}
                     </div>
-                    <a href="https://wa.me/56941818578?text=${encodeURIComponent('Hola, me interesa el producto: ' + product.name + ' (Ref. ' + productCode(product) + ') - ' + formatPrice(product.price) + ' | Foto: ' + productPhotoUrl(product))}" class="btn-order" target="_blank">
+                    <a href="https://wa.me/56941818578?text=${encodeURIComponent(waTexto)}" class="btn-order" target="_blank">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                         Pedir Ahora
                     </a>
                 </div>
             </div>
-        </div>`).join('');
+        </div>`;
 }
 
 function openLightbox(image, name, price){
@@ -352,6 +441,12 @@ document.addEventListener('DOMContentLoaded', function(){
         if(window.pageYOffset > 100) navbar.classList.add('navbar-scrolled');
         else navbar.classList.remove('navbar-scrolled');
     });
+
+    // Abrir directamente en promociones si la URL trae #promocion
+    if(window.location.hash === '#promocion'){
+        var bp = document.querySelector('.filter-btn[data-filter="promocion"]');
+        if(bp){ currentFilter = 'promocion'; document.querySelectorAll('.filter-btn').forEach(function(b){b.classList.remove('active');}); bp.classList.add('active'); }
+    }
 
     renderProducts();
 });
